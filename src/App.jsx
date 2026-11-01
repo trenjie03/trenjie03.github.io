@@ -1,74 +1,77 @@
-export default function App() {
-  return (
-    <>
-      <section className="min-h-screen flex flex-col justify-center items-center text-center">
+import { useEffect, useState } from "react";
+import { site } from "./content.js";
+import Home from "./pages/Home.jsx";
+import Projects from "./pages/Projects.jsx";
+import About from "./pages/About.jsx";
 
-        <h1 className="text-7xl font-bold">
-          Ren Jie
-        </h1>
+// Hash-based tabs (#home, #projects, #about) so every tab has a
+// shareable link and refreshes work on GitHub Pages without a server.
+const TABS = [
+  { id: "home", label: "Home", Page: Home },
+  { id: "projects", label: "Projects", Page: Projects },
+  { id: "about", label: "About", Page: About },
+];
 
-        <p className="text-2xl mt-4 text-zinc-400">
-          Embedded Systems • Robotics • AI
-        </p>
-
-        <div className="mt-10 flex gap-5">
-
-          <button className="bg-blue-600 px-6 py-3 rounded-xl">
-            Projects
-          </button>
-
-          <button className="bg-zinc-800 px-6 py-3 rounded-xl">
-            Resume
-          </button>
-
-        </div>
-
-      </section>
-
-      <section className="max-w-6xl mx-auto py-24 px-8">
-
-        <h2 className="text-5xl mb-12">
-          Featured Projects
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-8">
-
-          <Project
-            title="ESP32 Data Logger"
-            text="WiFi CSV streaming from HX711 load cell."
-          />
-
-          <Project
-            title="ILI9341 UI"
-            text="Modern touchscreen interface using PlatformIO."
-          />
-
-          <Project
-            title="2.4GHz Antenna"
-            text="Novel antenna for indoor localization."
-          />
-
-        </div>
-
-      </section>
-    </>
-  )
+function currentTab() {
+  const id = window.location.hash.replace(/^#\/?/, "");
+  return TABS.find((t) => t.id === id) ? id : "home";
 }
 
-function Project({ title, text }) {
+export default function App() {
+  const [tab, setTab] = useState(currentTab);
+
+  useEffect(() => {
+    const onHash = () => {
+      setTab(currentTab());
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
+  const active = TABS.find((t) => t.id === tab);
+
+  useEffect(() => {
+    document.title = tab === "home" ? site.name : `${active.label} – ${site.name}`;
+  }, [tab, active]);
+
+  const { Page } = active;
+
   return (
-    <div className="bg-zinc-900 rounded-2xl p-8 hover:scale-105 duration-300">
+    <div className="shell">
+      <header className="masthead">
+        <a className="wordmark" href="#home">
+          {site.name}
+        </a>
+        <nav aria-label="Main">
+          <ul className="tabs">
+            {TABS.map((t) => (
+              <li key={t.id}>
+                <a href={`#${t.id}`} aria-current={t.id === tab ? "page" : undefined}>
+                  {t.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </header>
 
-      <div className="aspect-video bg-zinc-800 rounded-xl mb-6"></div>
+      <main key={tab} className="page">
+        <Page />
+      </main>
 
-      <h3 className="text-2xl font-semibold">
-        {title}
-      </h3>
-
-      <p className="text-zinc-400 mt-3">
-        {text}
-      </p>
-
+      <footer className="footer">
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <ul className="link-row">
+          {site.links.map((l) => (
+            <li key={l.label}>
+              <a href={l.href} target="_blank" rel="noreferrer">
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </footer>
     </div>
-  )
+  );
 }
