@@ -52,13 +52,13 @@ export default function About() {
         </section>
       )}
 
-      <section>
+      {/* <section>
         <h2>Contact</h2>
         <p>
           The best way to reach me is by email at{" "}
           <a href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
-      </section>
+      </section> */}
     </>
   );
 }

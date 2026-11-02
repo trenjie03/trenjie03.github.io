@@ -6,8 +6,8 @@
 export const site = {
   name: "Ren Jie",
   // Shown under your name on the home page and in the browser tab.
-  role: "Engineering Product Development student | Singapore University of Technology and Design| Currently on exchange at National Yang Ming Chiao Tung University, Hsinchu City, Taiwan.",
-  email: "you@example.com",
+  role: "Engineering Product Development student | Singapore University of Technology and Design",
+  //email: "you@example.com",
   links: [
     { label: "GitHub", href: "https://github.com/trenjie03" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/trenjie03" },
@@ -18,11 +18,11 @@ export const site = {
 
 export const home = {
   // One or two short paragraphs. Plain text.
-  intro: [
-    "I'm a university student who likes taking ideas into reality.",
-  ],
+  // intro: [
+  //   "I'm a university student who likes taking ideas into reality.",
+  // ],
   // What you're working on right now. Set to "" to hide.
-  now: "Currently working on: ",
+  now: "Currently working on: Exchange at National Yang Ming Chiao Tung University, Hsinchu City, Taiwan",
 };
 
 // Projects appear newest first in the order listed here.
@@ -32,31 +32,31 @@ export const home = {
 export const projects = [
   {
     title: "EMBO",
-    year: "2026",
+    year: "May - Aug 2026",
     summary: "Embolic agent mixing device.",
     details:
-      "EMBO is a device that aims to measure particle sizes and viscosity of embolic agents during preparation, which helps to improve the consistency and accuracy during the mixing process."+
-      "Main parts that I worked on include developing the control systems architecture, the screen UI and the firmware for the whole system.",
+      "EMBO is a device that aims to measure particle sizes and viscosity of embolic agents during preparation, which helps to improve the consistency and accuracy during the mixing process. "+
+      "Main parts that I worked on include developing the control systems architecture, the screen UI and the firmware for the whole system. I also helped to design and integrate the electrical and mechanical components into the device.",
     
-    tags: ["ESP32", "C", "C++"],
+    tags: ["ESP32", "C", "C++", "KiCad", "Fusion"],
     image: "",
     links: [{ label: "Project repository", href: "https://github.com/markantosa/embo" }],
     featured: true,
   },
   {
-    title: "ILI9341 UI",
-    year: "2026",
-    summary: "Touchscreen interface for an ILI9341 display, built with PlatformIO.",
+    title: "DIY Guitar Pedal",
+    year: "May 2026",
+    summary: "As an avid electric guitar player, I always wanted make a pedal. Through this project, I learned PCB Design Software by taking available schematics and learning to place and route components on KiCAD. Assembled by hand using manufactured PCB boards. I also learned to work around mechanical limitations to fit electrical components into an enclosure.",
     details: "",
-    tags: ["PlatformIO", "Embedded UI"],
+    tags: ["KiCAD", "Analog Circuits", "Fusion"],
     image: "",
     links: [],
-    featured: false,
+    featured: true,
   },
   {
-    title: "2.4 GHz Antenna",
-    year: "2025",
-    summary: "Antenna design for indoor localization.",
+    title: "Flexible Complementary Split Ring Resonator (CSRR) 2.4 GHz Antenna",
+    year: "May - Aug 2026",
+    summary: "As part of the SUTD 30.102 EM and Applications course, the team attemped to design a non-invasive antenna to measure changes in nutrient levels for hydroponic setups, to reduce the need to replace invasive antenna designs that corrode easily.",
     details: "",
     tags: ["RF", "Antenna design"],
     image: "",
