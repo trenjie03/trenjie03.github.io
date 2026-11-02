@@ -46,8 +46,8 @@ export const projects = [
   {
     title: "DIY Guitar Pedal",
     year: "May 2026",
-    summary: "As an avid electric guitar player, I always wanted make a pedal. Through this project, I learned PCB Design Software by taking available schematics and learning to place and route components on KiCAD. Assembled by hand using manufactured PCB boards. I also learned to work around mechanical limitations to fit electrical components into an enclosure.",
-    details: "",
+    summary: "",
+    details: "As an avid electric guitar player, I always wanted make a pedal. Through this project, I learned PCB Design Software by taking available schematics and learning to place and route components on KiCAD. Assembled by hand using manufactured PCB boards. I also learned to work around mechanical limitations to fit electrical components into an enclosure.",
     tags: ["KiCAD", "Analog Circuits", "Fusion"],
     image: "",
     links: [],
@@ -56,8 +56,8 @@ export const projects = [
   {
     title: "Flexible Complementary Split Ring Resonator (CSRR) 2.4 GHz Antenna",
     year: "May - Aug 2026",
-    summary: "As part of the SUTD 30.102 EM and Applications course, the team attemped to design a non-invasive antenna to measure changes in nutrient levels for hydroponic setups, to reduce the need to replace invasive antenna designs that corrode easily.",
-    details: "",
+    summary: "",
+    details: "As part of the SUTD 30.102 EM and Applications course, the team attemped to design a non-invasive antenna to measure changes in nutrient levels for hydroponic setups, to reduce the need to replace invasive antenna designs that corrode easily.",
     tags: ["RF", "Antenna design"],
     image: "",
     links: [],
@@ -79,8 +79,8 @@ export const about = {
   // Optional portrait: put it in /public and set e.g. "/me.jpg". Leave "" to hide.
   photo: "",
   bio: [
-    "A few sentences about who you are: where you study, what you're focusing on, and how you got into hardware.",
-    "A second paragraph about what you're looking for: internships, collaborations, or just people to talk shop with.",
+    "Currently an undergraduate at Singapore University of Technology and Design, Engineering Product Development Pillar, specialising in Electrical Engineering.",
+    "",
   ],
   // Listed newest first.
   experience: [
@@ -102,7 +102,7 @@ export const about = {
       period: "Sep 2026 – Dec 2026",
       title: "Exchange Student",
       org: "National Yang Ming Chiao Tung University, Hsinchu City, Taiwan",
-      note: "Exchange Student",
+      note: "",
     },
     {
       period: "Dec 2025 – Jan 2026",
@@ -113,6 +113,7 @@ export const about = {
   ],
   // Grouped skills. Add or remove groups freely.
   skills: [
+    { group: "Certifications", items:["Coursera Python for Data Science and AI", "IBM Tools for Data Science", "Google Foundations of User Experience (UX) Design"]},
     { group: "Embedded", items: ["C / C++", "STM32", "ESP32", "PlatformIO"] },
     { group: "Hardware", items: ["KiCad", "PCB layout"] },
     { group: "Tools", items: ["Git", "Python", "Fusion 360"] },
