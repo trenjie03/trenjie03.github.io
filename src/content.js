@@ -80,7 +80,7 @@ export const about = {
   photo: "",
   bio: [
     "Currently an undergraduate at Singapore University of Technology and Design, Engineering Product Development Pillar, specialising in Electrical Engineering.",
-    "",
+    "something",
   ],
   // Listed newest first.
   experience: [
