@@ -18,9 +18,9 @@ export const site = {
 
 export const home = {
   // One or two short paragraphs. Plain text.
-  // intro: [
-  //   "I'm a university student who likes taking ideas into reality.",
-  // ],
+  intro: [
+    "I'm a university student who likes taking ideas into reality.",
+  ],
   // What you're working on right now. Set to "" to hide.
   now: "Currently working on: Exchange at National Yang Ming Chiao Tung University, Hsinchu City, Taiwan",
 };
