@@ -11,7 +11,10 @@
   --accent-soft: #e6f1ec;
 
   --font: "Schibsted Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --measure: 42rem; /* content column width */
+  --measure: 42rem; /* page width on small screens */
+  --rail: 8.5rem; /* left column for years, dates, skill groups */
+  --gutter: 1.25rem; /* space between the rail and the content */
+  --edge: 1.5rem; /* side padding of the page */
 
   color-scheme: light;
 }
@@ -30,6 +33,8 @@
 
 /* ── Base ───────────────────────────────────────────────────── */
 html {
+  /* Text grows gently with the screen: 16px on phones, up to 19px on big monitors. */
+  font-size: clamp(100%, 0.8rem + 0.3vw, 118.75%);
   background: var(--paper);
   -webkit-text-size-adjust: 100%;
 }
@@ -79,7 +84,7 @@ h2 {
 .shell {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--edge);
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
   min-height: 100vh;
@@ -165,7 +170,7 @@ h2 {
 
 /* ── Home ───────────────────────────────────────────────────── */
 .hero h1 {
-  font-size: clamp(3.25rem, 13vw, 6rem);
+  font-size: clamp(3.25rem, 11vw, 8.5rem);
   line-height: 0.95;
   letter-spacing: -0.045em;
   font-weight: 700;
@@ -218,7 +223,7 @@ h2 {
 .project {
   display: grid;
   grid-template-columns: 4rem 1fr;
-  gap: 1.25rem;
+  gap: var(--gutter);
   padding: 1.5rem 0;
   border-bottom: 1px solid var(--rule);
 }
@@ -307,8 +312,8 @@ h2 {
 }
 .timeline li {
   display: grid;
-  grid-template-columns: 8.5rem 1fr;
-  gap: 1.25rem;
+  grid-template-columns: var(--rail) 1fr;
+  gap: var(--gutter);
 }
 .timeline li + li {
   margin-top: 1.25rem;
@@ -340,8 +345,8 @@ h2 {
 }
 .skills div {
   display: grid;
-  grid-template-columns: 8.5rem 1fr;
-  gap: 1.25rem;
+  grid-template-columns: var(--rail) 1fr;
+  gap: var(--gutter);
   padding: 0.6rem 0;
   border-top: 1px solid var(--rule);
 }
@@ -358,5 +363,60 @@ h2 {
   .skills div {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+}
+
+/* ── Laptops and larger ─────────────────────────────────────────
+   The page widens and gains a left rail: years, dates and skill
+   groups sit in it, and all body text lines up on the column to
+   its right. Paragraphs keep a readable line length. */
+@media (min-width: 64rem) {
+  :root {
+    --measure: 68rem;
+    --rail: 11rem;
+    --gutter: 2.5rem;
+    --edge: 3rem;
+  }
+
+  .masthead {
+    padding-top: 2.75rem;
+  }
+  .page {
+    padding: 5rem 0 6rem;
+  }
+  .page > section + section {
+    margin-top: 5rem;
+  }
+
+  .hero .lede {
+    font-size: 1.5rem;
+    max-width: 34ch;
+  }
+
+  /* Text blocks without a rail item start on the content column. */
+  .page > .prose,
+  .about-intro,
+  .page > section:not(.prose) > p {
+    margin-left: calc(var(--rail) + var(--gutter));
+  }
+  .page > .prose {
+    margin-top: 4rem;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .project {
+    grid-template-columns: var(--rail) 1fr;
+    gap: var(--gutter);
+    padding: 2rem 0;
+  }
+  .project h3 {
+    font-size: 1.25rem;
+  }
+  .project-image {
+    max-width: 44rem;
   }
 }
